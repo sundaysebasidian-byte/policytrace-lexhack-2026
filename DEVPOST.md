@@ -54,4 +54,5 @@ Future work may include:
 - **Author**: GUANGRUI LI (Solo builder, Digital Rights & Policy Tech track, LexHack 2026).
 - **Academic Research**: PoliCheck (https://www.usenix.org/conference/usenixsecurity20/presentation/andow) and PoliGraph (https://arxiv.org/abs/2210.06746) for pioneering flow-to-policy consistency research.
 - **AI Development Assistance**: Codex assisted with architecture, implementation, code review, and testing. Antigravity CLI was used for drafting submission copy.
+- **Production and hosting tools**: Playwright/Chromium for browser verification and screen recording; FFmpeg for video encoding; Windows Speech API with the Microsoft Zira voice for synthesized narration; Sites for static hosting; GitHub for source hosting and CI; Vimeo for the public demonstration video.
 - **Evaluation Notice**: Tested and demonstrated using synthetic scenarios (the fictional Cedar Notes test cases). This project is not a study of real-world applications and makes no claims regarding real-world accuracy or measured market impact.

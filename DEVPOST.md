@@ -1,5 +1,10 @@
 # PolicyTrace
 
+## Try it in 60 seconds
+Open the [live workspace](https://policytrace-lexhack-2026.sundaysebasidian.chatgpt.site), choose **A broken promise**, review and confirm the three policy claims, then run the check. Expand a finding to see the exact policy quote and masked request evidence. Try **When evidence is missing** to see why an incomplete capture cannot establish a match. No account or API key is required.
+
+Watch the [111-second demonstration](https://vimeo.com/1230721169), or use the [captioned player](https://policytrace-lexhack-2026.sundaysebasidian.chatgpt.site/demo.html).
+
 ## Inspiration
 An app promises it never sends your location. A captured request contains coordinates. A reviewer needs to connect the two, check the context, and explain what the evidence actually supports. PolicyTrace makes that review accessible without sending the capture to another service. Prior research, including PoliCheck and PoliGraph, already studies flow-to-policy consistency; our contribution is a focused local workflow with source-linked evidence and explicit uncertainty.
 

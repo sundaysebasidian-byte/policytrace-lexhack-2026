@@ -6,7 +6,9 @@ Built for the **Digital Rights & Policy Tech** track at LexHack 2026 by **GUANGR
 
 ## Try it
 
-[Open the application](https://policytrace-lexhack-2026.sundaysebasidian.chatgpt.site) · [Watch the 111-second demo](https://policytrace-lexhack-2026.sundaysebasidian.chatgpt.site/demo.html)
+[Open the application](https://policytrace-lexhack-2026.sundaysebasidian.chatgpt.site) · [Watch the captioned demo](https://policytrace-lexhack-2026.sundaysebasidian.chatgpt.site/demo.html) · [Vimeo](https://vimeo.com/1230721169) · [Devpost submission](https://devpost.com/software/policytrace)
+
+Submitted to LexHack 2026 on **September 27, 2026 at 19:20 UTC**. Devpost confirmed receipt by email.
 
 Or run locally:
 

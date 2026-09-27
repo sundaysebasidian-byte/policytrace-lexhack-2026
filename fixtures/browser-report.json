@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "1.0.0",
+  "createdAt": "2026-09-27T18:36:36.157Z",
+  "context": "[Test context kept in browser; omitted from portable export]",
+  "sample": "browser-integration",
+  "findings": [
+    {
+      "id": "finding-1",
+      "category": "precise_location",
+      "title": "Precise location",
+      "status": "conflict",
+      "reason": "The reviewed statement denies collection or transmission, while a supported field is visible in an outgoing request. Field semantics still require review.",
+      "nextStep": "Verify that the field contains the claimed user data and that the statement applies to this request. Then fix the data flow or clarify the disclosure.",
+      "claims": [
+        {
+          "id": "claim-1",
+          "category": "precise_location",
+          "start": 0,
+          "end": 35,
+          "line": 1,
+          "mode": "deny",
+          "originalMode": "deny",
+          "included": true
+        }
+      ],
+      "evidence": [
+        {
+          "category": "precise_location",
+          "field": "latitude + longitude",
+          "path": "log.entries[1].request [recognized precise_location field; detailed path kept in browser]",
+          "requestIndex": 1,
+          "observation": "A valid coordinate pair with at least four decimal places is visible. This does not establish its origin or actual accuracy.",
+          "maskedValue": "[coordinates redacted]",
+          "requestId": "request-2",
+          "method": "POST",
+          "destinationId": 1,
+          "host": "[destination masked]",
+          "timestamp": "2026-09-27T18:36:36.111Z",
+          "responseStatus": 200
+        }
+      ]
+    },
+    {
+      "id": "finding-3",
+      "category": "device_id",
+      "title": "Device identifier",
+      "status": "conflict",
+      "reason": "The reviewed statement denies collection or transmission, while a supported field is visible in an outgoing request. Field semantics still require review.",
+      "nextStep": "Verify that the field contains the claimed user data and that the statement applies to this request. Then fix the data flow or clarify the disclosure.",
+      "claims": [
+        {
+          "id": "claim-2",
+          "category": "device_id",
+          "start": 36,
+          "end": 73,
+          "line": 2,
+          "mode": "deny",
+          "originalMode": "deny",
+          "included": true
+        }
+      ],
+      "evidence": [
+        {
+          "category": "device_id",
+          "field": "device_id",
+          "path": "log.entries[1].request [recognized device_id field; detailed path kept in browser]",
+          "requestIndex": 1,
+          "observation": "A non-empty value appears in a recognized device identifier field; uniqueness is not established.",
+          "maskedValue": "[identifier redacted]",
+          "requestId": "request-2",
+          "method": "POST",
+          "destinationId": 1,
+          "host": "[destination masked]",
+          "timestamp": "2026-09-27T18:36:36.111Z",
+          "responseStatus": 200
+        }
+      ]
+    },
+    {
+      "id": "finding-2",
+      "category": "email",
+      "title": "Email address",
+      "status": "matched",
+      "reason": "A visible field matches a data type covered by the reviewed statement. This does not verify purpose, recipient obligations, consent, or legal compliance.",
+      "nextStep": "Confirm the receiving service, purpose, and test conditions. Keep this capture as a regression example.",
+      "claims": [
+        {
+          "id": "claim-3",
+          "category": "email",
+          "start": 74,
+          "end": 101,
+          "line": 3,
+          "mode": "allow",
+          "originalMode": "allow",
+          "included": true
+        }
+      ],
+      "evidence": [
+        {
+          "category": "email",
+          "field": "email",
+          "path": "log.entries[1].request [recognized email field; detailed path kept in browser]",
+          "requestIndex": 1,
+          "observation": "An email-shaped value appears in an email field.",
+          "maskedValue": "[email redacted]",
+          "requestId": "request-2",
+          "method": "POST",
+          "destinationId": 1,
+          "host": "[destination masked]",
+          "timestamp": "2026-09-27T18:36:36.111Z",
+          "responseStatus": 200
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "conflict": 2,
+    "matched": 1,
+    "undisclosed": 0,
+    "unobserved": 0,
+    "unknown": 0
+  },
+  "coverage": {
+    "requests": 2,
+    "destinations": 1,
+    "visibleBodies": 1,
+    "opaqueBodies": 0,
+    "reviewedClaims": 3,
+    "excludedClaims": 0,
+    "warnings": [],
+    "supportedCategories": [
+      "precise_location",
+      "email",
+      "device_id"
+    ]
+  },
+  "limitations": [
+    "Only supplied HTTP(S) requests are analyzed. No capture authenticity or app attribution is established.",
+    "Detectors cover recognized email, device identifier, and coordinate fields in URLs and supported request bodies. Headers, responses, arbitrary names, encoded data, and server-side activity are not inspected.",
+    "Policy extraction is a conservative pattern-based assistant, not an LLM. Manual review is required.",
+    "No legal compliance, consent validity, data sale, retention, deletion, or absence of collection is established."
+  ],
+  "exportNote": "Raw values, credentials, URL paths, unknown destination labels, policy quotes, detailed JSON keys, and free-form test context are omitted. Reopen the original files locally to inspect source offsets."
+}

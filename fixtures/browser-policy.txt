@@ -1,0 +1,3 @@
+We never transmit precise location.
+We do not collect device identifiers.
+We collect email addresses.

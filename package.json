@@ -1,0 +1,19 @@
+{
+  "name": "policytrace",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "node scripts/serve.mjs",
+    "check": "node --check dist/app.js && node --check dist/engine.js",
+    "test:browser": "node qa/browser.mjs",
+    "test:capture": "node qa/record-capture.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PolicyTrace — Privacy claims, meet evidence</title>
+  <meta name="description" content="Check privacy promises against captured network requests. A local-first, evidence-backed privacy review workspace.">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23152640'/%3E%3Cpath d='M11 29V11h11a6 6 0 0 1 0 12h-5m0-6h5' fill='none' stroke='%237FE4D0' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="PolicyTrace home"><span class="brand-mark" aria-hidden="true">P<span>↗</span></span>PolicyTrace<span class="beta">LAB</span></a>
+    <nav aria-label="Main"><a class="nav-link" href="demo.html">Watch demo</a><button class="nav-link" id="method-button">How it works</button><a class="nav-link" href="https://www.usenix.org/conference/usenixsecurity20/presentation/andow" target="_blank" rel="noopener noreferrer">Research ↗</a><span class="local-badge"><span aria-hidden="true">◈</span> Runs on your device</span></nav>
+  </header>
+  <main id="workspace">
+    <section class="intro">
+      <div><div class="eyebrow">PRIVACY REVIEW WORKSPACE</div><h1>Privacy claims,<br><span>meet evidence.</span></h1><p>Put a privacy policy next to real network requests.<br class="desktop-break"> See what matches, what needs review, and what you can't yet know.</p></div>
+      <div class="intro-aside"><span class="aside-number">01—03</span><p>Bring the policy.<br>Follow the data.<br><strong>Keep the evidence.</strong></p><div class="aside-line"></div><small>No accounts. No uploads. No compliance score.</small></div>
+    </section>
+    <section class="demo-strip" aria-label="Example audits">
+      <div><span class="demo-label">START WITH AN EXAMPLE</span><span class="demo-note">Synthetic data. Real checks.</span></div>
+      <div class="demo-options"><button data-demo="conflict" class="demo-button"><span class="demo-dot red"></span>A broken promise<span aria-hidden="true">↗</span></button><button data-demo="matching" class="demo-button"><span class="demo-dot green"></span>A matching disclosure<span aria-hidden="true">↗</span></button><button data-demo="opaque" class="demo-button"><span class="demo-dot amber"></span>When evidence is missing<span aria-hidden="true">↗</span></button></div>
+    </section>
+    <div class="workspace-grid">
+      <section class="input-panel panel" aria-labelledby="input-heading">
+        <div class="panel-heading"><span class="step">01</span><h2 id="input-heading">Set up your review</h2><button id="clear-button" class="text-button">Clear</button></div>
+        <div class="form-body">
+          <div class="field-label"><label for="policy">Privacy policy</label><label class="text-button file-link" for="policy-file">Import .txt<input type="file" id="policy-file" accept=".txt,.md,text/plain,text/markdown" class="sr-only"></label></div>
+          <textarea id="policy" rows="9" maxlength="200000" placeholder="Paste the relevant privacy policy here…&#10;&#10;For example: We never transmit precise location." spellcheck="false" aria-describedby="policy-help"></textarea>
+          <p class="field-help" id="policy-help">English and Chinese statements. You'll review extracted claims before checking.</p>
+          <label for="har-file" class="field-label">Network capture</label>
+          <div class="dropzone" id="dropzone"><span class="upload-icon" aria-hidden="true">↥</span><strong id="har-label">Choose a HAR file</strong><span id="har-help">or drop it here · .har / .json · up to 10 MB</span><input id="har-file" type="file" accept=".har,.json,application/json" aria-label="Choose a HAR network capture" aria-describedby="har-help"></div>
+          <details class="capture-help"><summary>How do I get a HAR file?</summary><p>For a site you can test: open browser Developer Tools → Network, perform the actions you want to check, then export a HAR. Exports may omit sensitive headers or request bodies. Only analyze traffic you're authorized to inspect.</p><p>PCAPdroid can also export visible HTTP requests as HAR. Encrypted or omitted payloads remain unknown.</p></details>
+          <label class="field-label" for="context">What did you test? <span class="optional">Optional</span></label><input id="context" maxlength="300" placeholder="e.g. Fresh install, location permission denied" autocomplete="off">
+          <p id="input-error" class="error-message" role="alert" hidden></p>
+          <button id="review-button" class="primary-button" disabled>Review privacy claims <span aria-hidden="true">→</span></button>
+          <div class="privacy-note"><span aria-hidden="true">◇</span><p>Policy and capture stay in this tab. Sensitive values are masked in results and exports.</p></div>
+        </div>
+      </section>
+      <section class="results-panel panel" aria-labelledby="results-heading">
+        <div class="panel-heading"><span class="step">02</span><h2 id="results-heading">Follow the evidence</h2><span id="review-state" class="state-label">READY WHEN YOU ARE</span></div>
+        <div id="results-content" aria-live="polite">
+          <div class="empty-state"><div class="evidence-motif" aria-hidden="true"><span>POLICY</span><i></i><span>REQUEST</span></div><h3>Every finding should have a trail.</h3><p>Add a policy and a capture, or open an example.<br>We'll connect each finding to the words and requests behind it.</p><button class="secondary-button" data-demo="conflict">Explore a sample audit <span aria-hidden="true">→</span></button><div class="empty-footnote"><span>01 · Confirm the claims</span><span>02 · Inspect the evidence</span><span>03 · Export your review</span></div></div>
+        </div>
+      </section>
+    </div>
+    <footer><span>Evidence for a conversation. Not a legal verdict.</span><span>PolicyTrace · LexHack 2026 <span class="footer-separator">/</span> <button class="text-button" id="privacy-button">Privacy & limitations</button></span></footer>
+  </main>
+  <dialog id="info-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><h2 id="dialog-title">How PolicyTrace works</h2><button class="icon-button" id="close-dialog" aria-label="Close dialog">×</button></div><div id="dialog-body"></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
